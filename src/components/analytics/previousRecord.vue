@@ -3,8 +3,10 @@
       <h2 slot="header">Previous Record</h2>
       <div 
          id="service-detail"
-         v-if="selectedStreamID != 0">
-         <h1>Stream ID Selected : {{ selectedStreamID }}</h1>
+         v-show="selectedStreamID != 0">
+         <app-service-details>
+
+         </app-service-details>
       </div>
       <div>
          <app-pagination
@@ -26,6 +28,8 @@
    import TabContainer from '../containers/tabContentLayout'
    import Pagination from '../shared/pagination'
    import TableList from './previousRecordTableList'
+   import ServiceDetails from './serviceDetails'
+
    export default {
       data () {
          return {
@@ -45,13 +49,14 @@
       components : {
          appTabContainer : TabContainer,
          appPagination : Pagination,
-         appTableList : TableList
+         appTableList : TableList, 
+         appServiceDetails : ServiceDetails
       }
    }
 </script>
 <style sccoped>
    #service-detail{
-      background-color:#F8F9F9;
+      background-color:#E5E7E9;
       padding: 25px 15px;
       margin:25px 0;
    }   
