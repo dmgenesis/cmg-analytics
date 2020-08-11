@@ -16,12 +16,23 @@
             </li>
          </ul>
          <div id="tab-content">
+            <app-tab-container
+            v-if="isLive == true">
+               <h2 slot="header">Current Live Stream</h2>
+               <h1>This Content is for Live Stream Analytics</h1>
+            </app-tab-container>
+            <div v-else>
+               <app-previous-record></app-previous-record>
+            </div>
          </div>
       </div>
    </div>
 </template>
 
 <script>
+import TabContainer from './components/containers/tabContentLayout'
+import PreviousRecord from './components/analytics/previousRecord'
+
 export default {
   data () {
     return {
@@ -29,7 +40,8 @@ export default {
     }
   },
   components : {
-
+     appTabContainer : TabContainer,
+     appPreviousRecord : PreviousRecord
   }
 }
 </script>
@@ -52,7 +64,7 @@ export default {
       border-top:solid 3px #007bff;
    }
    ul#tab-header li{
-      padding: 10px 30px;
+      padding: 15px 40px;
       background-color: #F8F9F9;
       border-top:solid 3px #fff;
       margin: 0 5px 0 0;

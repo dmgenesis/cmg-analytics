@@ -16,6 +16,6 @@ npm run build
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-Fibonacci Sequence Numbering
-5, 10, 15, 25, 40, 65
+## Guidelines
+> Fibonacci Sequence Numbering
+> 5, 10, 15, 25, 40, 65
