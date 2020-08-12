@@ -20,4 +20,12 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 ```
    Fibonacci Sequence Numbering
    5, 10, 15, 25, 40, 65
+
+   # Font Size
+      - 14px : Default
+      - 12px : small 
+      
+   # Color Format
+   ## Fonts
+      - #007bff : a hover 
 ```

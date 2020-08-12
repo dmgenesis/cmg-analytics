@@ -1,12 +1,32 @@
 <template>
    <app-tab-container>
-      <h2 slot="header">Previous Record</h2>
+      <ul id="service-report-option">
+         <li
+            :class="{active : pageView == 'last-seven'}">
+            <a href="#" @click.prevent="pageView = 'last-seven'">Last 7 Streams</a>
+         </li>
+         <li 
+            :class="{active : pageView == 'summary'}">
+            <a href="#" @click.prevent="pageView = 'summary'">Service Summary</a>
+         </li>
+         <li
+            :class="{active : pageView == 'last-thirty'}">
+            <a href="#" @click.prevent="pageView = 'last-thirty'">Last 30 days</a>
+         </li>
+      </ul>
       <div 
          id="service-detail"
-         v-show="selectedStreamID != 0">
+         v-show="pageView == 'summary'">
          <app-service-details>
-
          </app-service-details>
+      </div>
+      <div 
+         v-show="pageView == 'last-seven'">
+         <h5>Last 7</h5>
+      </div>
+      <div 
+         v-show="pageView == 'last-thirty'">
+         <h5>Last Thirty</h5>
       </div>
       <div>
          <app-pagination
@@ -31,8 +51,11 @@
    import ServiceDetails from './serviceDetails'
 
    export default {
+      props : {
+      },
       data () {
          return {
+            pageView : 'last-seven',
             totalPage : 12,   
             selectedPage : 1,
             selectedStreamID : 0
@@ -44,6 +67,7 @@
          },
          selectStream($event) {
             this.selectedStreamID = $event
+            this.pageView = 'summary'
          }
       },
       components : {
@@ -59,5 +83,25 @@
       background-color:#E5E7E9;
       padding: 25px 15px;
       margin:25px 0;
+   }
+   ul#service-report-option{
+      display: flex;
+      padding: 0;
+      list-style-type:none;
+      color:#cdcdcd;
+   }
+   ul#service-report-option li a{
+      color: #cdcdcd;
+      font-size: 14px;
+      text-transform: uppercase;
+      margin-right: 10px;
+   }
+   ul#service-report-option li.active a{
+      font-weight:400;
+      color: #000;
+   }
+   ul#service-report-option li a:hover{
+      color:#007bff; 
+      text-decoration: none;
    }   
 </style>
