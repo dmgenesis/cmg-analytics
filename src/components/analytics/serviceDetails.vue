@@ -55,7 +55,7 @@ export default {
       appUsersTable : UsersTableList,
       appCountriesTable : CountriesTableList
    }
-}
+}  
 </script>
 
 <style>

@@ -14,20 +14,18 @@
             <a href="#" @click.prevent="pageView = 'last-thirty'">Last 30 days</a>
          </li>
       </ul>
-      <div 
-         id="service-detail"
+      <app-tab-layout
          v-show="pageView == 'summary'">
-         <app-service-details>
-         </app-service-details>
-      </div>
-      <div 
+         <app-service-details></app-service-details>
+      </app-tab-layout>
+      <app-tab-layout
          v-show="pageView == 'last-seven'">
          <h5>Last 7</h5>
-      </div>
-      <div 
+      </app-tab-layout>
+       <app-tab-layout
          v-show="pageView == 'last-thirty'">
          <h5>Last Thirty</h5>
-      </div>
+       </app-tab-layout>
       <div>
          <app-pagination
             :selected="selectedPage"
@@ -45,6 +43,9 @@
    </app-tab-container>
 </template>
 <script>
+   // Layouts 
+   import TabInfoLayout from '../containers/tabInfoLayout'
+   // Components
    import TabContainer from '../containers/tabContentLayout'
    import Pagination from '../shared/pagination'
    import TableList from './previousRecordTableList'
@@ -74,16 +75,12 @@
          appTabContainer : TabContainer,
          appPagination : Pagination,
          appTableList : TableList, 
-         appServiceDetails : ServiceDetails
+         appServiceDetails : ServiceDetails,
+         appTabLayout : TabInfoLayout
       }
    }
 </script>
-<style sccoped>
-   #service-detail{
-      background-color:#E5E7E9;
-      padding: 25px 15px;
-      margin:25px 0;
-   }
+<style scoped>
    ul#service-report-option{
       display: flex;
       padding: 0;
